@@ -12,13 +12,11 @@ function App() {
   return (
     <>
       <Navbar />
-      <Router>
         <Routes>
-            <Route path="/landing"> <Landing /> </Route>
+          <Route path="/landing" element={<Landing />} />
         </Routes>
-      </Router>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

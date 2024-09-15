@@ -4,9 +4,8 @@ import Landing from './Landing';
 import React from "react";
 import {
   BrowserRouter as Router,
-  Switch,
   Route,
-  Link
+  Routes
 } from "react-router-dom";
 
 function App() {
@@ -14,9 +13,9 @@ function App() {
     <>
       <Navbar />
       <Router>
-        <Switch>
+        <Routes>
             <Route path="/landing"> <Landing /> </Route>
-        </Switch>
+        </Routes>
       </Router>
     </>
   )

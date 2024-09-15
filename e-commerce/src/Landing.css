@@ -1,0 +1,41 @@
+.mainImg {
+    border: 1px solid red;
+    height: 110vh;
+}
+
+.position {
+    margin-left: 2vh ;
+    top: 10vh;
+}
+
+.IntegralBold {
+    font-family: "IntegralBold";
+}
+
+.IntegralRegular {
+    font-family: "IntegralNormal";
+}
+
+.modelImg {
+    height: 110vh;
+    overflow: hidden;
+    object-position: right;
+}
+
+.boxes {
+    @apply text-lg ;
+    font-family: IntegralNormal;
+}
+
+.boxes div {
+    border-right: 1px solid grey;
+    padding:2vh;
+}
+
+.boxes h1 {
+    @apply text-4xl;
+}
+
+.boxes h4 {
+    @apply text-gray-500 text-sm;
+}

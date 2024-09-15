@@ -1,0 +1,12 @@
+.link {
+    @apply rounded-full  py-1
+}
+
+.link:hover {
+    background-color: gray;
+    transition: 0.1s ease-in;
+}
+
+.IntegralRegular {
+    font-family: IntegralRegular;
+}

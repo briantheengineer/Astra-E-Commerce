@@ -23,7 +23,7 @@ export default function Navbar() {
                 <Link to="/landing" />
                     <div>
                         <button onClick={toggleDropdown} className="px-4 link IntegralRegular">Shop</button>
-                        <div className={`dropdown-menu ${isDropped ? '' : 'hidden'} fixed border p-2 space-y-2 IntegralRegular`}>
+                        <div className={`dropdown-menu ${isDropped ? '' : 'hidden'} fixed border p-2 space-y-2 IntegralRegular z-50`}>
                             <p>Thing 1</p>
                             <p>Thing 2</p>
                         </div>

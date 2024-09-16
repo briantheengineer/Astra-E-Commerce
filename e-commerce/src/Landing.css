@@ -39,3 +39,8 @@
 .boxes h4 {
     @apply text-gray-500 text-sm;
 }
+
+.labels img {
+    width: auto;
+    height: 4vh;
+}

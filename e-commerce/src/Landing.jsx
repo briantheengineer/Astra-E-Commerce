@@ -4,6 +4,7 @@ import Calvin from "../public/Calvin-Klein-logo.png"
 import Prada from "../public/Prada-logo.png"
 import Versace from "../public/Versace-logo.png"
 import Zara from "../public/Zara-logo.png"
+import Clothes from "../src/components/Clothes"
 import "./Landing.css";
 
 export default function Landing() {
@@ -55,6 +56,7 @@ export default function Landing() {
             <img src={Zara} alt="" />
         </div>
       </div>
+      <Clothes />
     </>
   );
 }

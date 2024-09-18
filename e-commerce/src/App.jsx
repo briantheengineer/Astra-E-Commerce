@@ -1,6 +1,7 @@
 import './App.css'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer';
+import ProductDetail from './productInfo'
 import Landing from './Landing';
 import React from "react";
 import {
@@ -15,6 +16,7 @@ function App() {
       <Navbar />
         <Routes>
           <Route path="/" element={<Landing />} />
+          <Route path="/item/:id" element={<ProductDetail />} />
         </Routes>
       <Footer />
     </>

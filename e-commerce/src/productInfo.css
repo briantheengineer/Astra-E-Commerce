@@ -1,0 +1,15 @@
+.integralNormal {
+    font-family: 'IntegralNormal';
+    
+}
+
+.integralBold {
+    font-family: 'IntegralBold';
+}
+
+.itemSize button {
+    @apply border px-2;
+    font-family: 'IntegralNormal';
+    font-size: small;
+}
+

@@ -1,5 +1,6 @@
 import './App.css'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer';
 import Landing from './Landing';
 import React from "react";
 import {
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
         </Routes>
+      <Footer />
     </>
   );
 }

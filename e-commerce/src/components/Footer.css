@@ -1,0 +1,26 @@
+.footerCards {
+    @apply flex w-1/4 p-5 content-start justify-between flex-wrap
+}
+
+.footerCards * {
+    width: 100%;
+}
+
+.integralBold {
+    font-family: 'IntegralBold';
+}
+
+.integralNormal {
+    font-family: 'IntegralNormal';
+}
+
+.footerCards h2 {
+    border-bottom: 1px solid grey;
+}
+
+.footerCards p {
+    font-family: 'IntegralNormal';
+    color: grey;
+    font-size: small;
+    margin-top: 8px;
+}

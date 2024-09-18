@@ -3,3 +3,11 @@
     height: 70vh;
     width: 45vh;
 }
+
+.integralBold {
+    font-family: 'IntegralBold';
+}
+
+.integralNormal {
+    font-family: 'IntegralNormal', sans-serif;
+}

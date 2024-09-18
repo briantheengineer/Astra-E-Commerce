@@ -24,12 +24,13 @@ export default function Clothes() {
   }, []);
 
   return (
-    <div>
+    <div className="text-center mt-5">
+      <h1 className="integralBold text-2xl ">New Arrivals</h1>
       <div>
         <ul className="flex flex-wrap content-center justify-center">
           {data.map((item) => (
               <div key={item.id}  className="border p-5 m-2 card">
-                  <li className="relative"> <div className="flex justify-between"> <h1>{(item.name)}</h1> <h4>${(item.price)}</h4> </div><img className="h-full w-full object-contain" src={item.img} alt="" /></li>
+                  <li className="relative"><img className="h-full w-full object-contain rounded-lg" src={item.img} alt="" /> <div className="flex justify-between integralNormal"> <h1>{(item.name)}</h1> <h4>${(item.price)}</h4> </div></li>
             </div>
           ))}
         </ul>

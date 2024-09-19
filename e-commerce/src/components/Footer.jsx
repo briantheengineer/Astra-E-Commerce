@@ -9,7 +9,7 @@ export default function Footer() {
                     <button className="w-full border p-1 mt-1 rounded-full bg-white integralNormal">Subscribe to Newsletter</button>
                 </form>
             </div>
-            <div className="flex flex-nowrap ">
+            <div className="flex flex-nowrap border-t border-black -mt-2 ">
                 <div className="footerCards">
                     <h1 className='integralBold text-3xl'>ASTRA</h1>
                     <h3 className='integralNormal text-gray-500 text-sm mt-3 '>We have clothes that suits your style and which  your're proud to wear.</h3>

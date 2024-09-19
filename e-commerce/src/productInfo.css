@@ -7,9 +7,20 @@
     font-family: 'IntegralBold';
 }
 
-.itemSize button {
+.itemSize label {
     @apply border px-2;
     font-family: 'IntegralNormal';
-    font-size: small;
 }
 
+.itemCounter * {
+    @apply px-3;
+} 
+
+.itemCounter button:hover {
+    @apply bg-gray-400 transition-colors;
+}
+
+.cartBtn:hover {
+    color:white;
+    background-color: black;
+}

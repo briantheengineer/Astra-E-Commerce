@@ -19,11 +19,11 @@ export default function Navbar() {
             
             <div className="navbar border w-full">
                 <nav className="flex items-center justify-center space-x-4 flex-nowrap">
-                <picture className="h-1/12 w-1/12 min-h-16 min-w-36"> <img className="h-full w-full object-contain" src={Logo} alt="Logo" /></picture>
+                <picture className="h-1/12 w-1/12 min-h-16 min-w-36"><Link to='/'> <img className="h-full w-full object-contain" src={Logo} alt="Logo" /></Link></picture>
                 <Link to="/landing" />
-                    <div>
-                        <button onClick={toggleDropdown} className="px-4 link IntegralRegular">Shop</button>
-                        <div className={`dropdown-menu ${isDropped ? '' : 'hidden'} fixed border p-2 space-y-2 IntegralRegular z-50`}>
+                    <div className="relative">
+                        <button onClick={toggleDropdown} className="px-4 link IntegralRegular min-w-24">Shop</button>
+                        <div className={`dropdown-menu ${isDropped ? '' : 'hidden'} border p-2 space-y-2 IntegralRegular z-50 absolute min-w-24 text-center `}>
                             <p>Thing 1</p>
                             <p>Thing 2</p>
                         </div>

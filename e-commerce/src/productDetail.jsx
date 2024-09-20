@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from './firebaseConfig';
-import './productInfo.css'
+import { CartContext } from './App';
+import './productDetail.css'
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -31,6 +32,13 @@ const ProductDetail = () => {
 
   if (!product) {
     return <p>Loading...</p>;
+  }
+
+  const { cart, setCart } = useContext(CartContext)
+  
+
+  const addToCart = (item) => {
+    setCart([...cart, item])
   }
 
   function addNumber() {
@@ -79,7 +87,7 @@ const ProductDetail = () => {
                     <p className='text-2xl'>{count}</p>
                     <button className='text-2xl border' onClick={addNumber}>+</button>
                 </div>
-                <button className='text-center border px-10 integralBold cartBtn '>Add to Cart</button>
+                <button onClick={addToCart} className='text-center border px-10 integralBold cartBtn '>Add to Cart</button>
             </div>
       </div>
       

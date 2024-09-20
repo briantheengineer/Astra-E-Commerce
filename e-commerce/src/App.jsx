@@ -15,13 +15,9 @@ export const CartContext = createContext([])
 
 function App() {
   const [cart, setCart] = useState([]);
-  
-  const addToCart = (item) => {
-    setCart([...cart, item])
-  }
 
   return (
-    <CartContext.Provider value={{cart, addToCart}}>
+    <CartContext.Provider value={{cart, setCart}}>
       <Navbar />
         <Routes>
           <Route path="/" element={<Landing />} />

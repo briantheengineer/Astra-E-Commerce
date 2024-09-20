@@ -1,17 +1,18 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext, useEffect } from "react"
 import { CartContext } from './App'
 
 export default function myCart() {
     const { cart } = useContext(CartContext);
 
-    useEffect(() => {
-        console.log(cart)
-    })
-
     return (
         <>
-            <div className="h-screen border ">
-                <h1>{cart}</h1>
+            <div>
+                <ul>
+                    {cart.length > 0 ? (
+                        cart.map((i, index) =>
+                        <li key={index}>{i.name} - {i.price} - {i.quantity} </li>)
+                    ): <li>No Items Added Yet</li>}
+                </ul>
             </div>
         </>
     )

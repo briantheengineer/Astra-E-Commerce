@@ -9,6 +9,7 @@ const ProductDetail = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [count, setCount] = useState(1);
+  const { cart, setCart } = useContext(CartContext)
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -34,11 +35,8 @@ const ProductDetail = () => {
     return <p>Loading...</p>;
   }
 
-  const { cart, setCart } = useContext(CartContext)
-  
-
-  const addToCart = (item) => {
-    setCart([...cart, item])
+  const addToCart= () => {
+    setCart([...cart, {...product, quantity:count}])
   }
 
   function addNumber() {

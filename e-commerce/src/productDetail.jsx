@@ -36,7 +36,21 @@ const ProductDetail = () => {
   }
 
   const addToCart= () => {
-    setCart([...cart, {...product, quantity:count}])
+    setCart( 
+      prevCart => {
+        const itemExists = prevCart.find(cartItem => cartItem.id === product.id);
+
+        if (itemExists) {
+          return prevCart.map(cartItem => 
+            cartItem.id === product.id ? {...cartItem, quantity: cartItem.quantity + 1}
+            : cartItem
+          );
+        }
+        else {
+          return [...prevCart, {...product, quantity: 1}]
+        }
+      }
+    )
   }
 
   function addNumber() {

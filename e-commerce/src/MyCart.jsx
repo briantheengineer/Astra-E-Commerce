@@ -3,38 +3,19 @@ import { CartContext } from './App'
 import "./MyCart.css"
 import { json } from "react-router-dom";
 
-export default function myCart() {
+export default function myCart({toggleCart, visibleCart}) {
     const { cart, setCart } = useContext(CartContext);
-    const [visibleCart, setVisibleCart] = useState(false)
 
-    const changeVisibility = () => {
-        setVisibleCart(!visibleCart)
-    }
-
-    const cartFilled = () => { 
-    if(cart.length > 0) {
-        setVisibleCart(true)
-    }
-    else (
-        setVisibleCart(false)
-    )
-}
     useEffect( () => {
         const storedCart = localStorage.getItem('cart');
         if (storedCart) {
             setCart(JSON.parse(storedCart))
         }
-    }, []);
+    }, [setCart]);
 
     useEffect(() => {
-        if (cart.length > 0) {
-            localStorage.setItem('cart', JSON.stringify(cart));
-        }
-    }, [cart]);
-
-    useEffect(() => { 
-        cartFilled()}, [cart])
-
+        localStorage.setItem('cart', JSON.stringify(cart));
+      }, [cart]);
 
     const decreaseItem = (i) => {
         setCart(prevCart => {
@@ -46,13 +27,13 @@ export default function myCart() {
     }
 
     return (
-        <div className={`${visibleCart ? "visible" : "hidden"} m-5 fixed z-10 max-h-screen right-0 top-1/2 w-1/6 p-2 overflow-clip`}>
-            <div className=" bg-slate-600  p-2">
-                <button onClick={changeVisibility} className=" ml-auto ">Close</button>
-                <ul className="text-center">
+        <div className={`${visibleCart ? "visible" : "hidden"} myCart fixed z-10 max-h-screen right-0 top-20 w-1/6 overflow-clip text-center`}>
+            <div className="h-fit  p-2">
+                <button onClick={toggleCart} className=" mb-4 right-3 fixed border p-1">Close</button>
+                <ul className="my-10">
                     {cart.length > 0 ? (
                         cart.map((i, index) =>
-                        <li key={index}> {index + 1}. {i.name} <br></br> ${i.price}  {i.quantity} item <button onClick={decreaseItem}>-</button></li>)
+                        <li key={index} className="border"> {index + 1}. {i.name} <br></br> ${i.price}  {i.quantity} item <button onClick={() => decreaseItem(i)}>-</button></li>)
                     ): <li>No Items Added Yet</li>
                     }
                     

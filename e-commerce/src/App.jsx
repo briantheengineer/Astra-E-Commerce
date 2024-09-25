@@ -15,15 +15,20 @@ export const CartContext = createContext([])
 
 function App() {
   const [cart, setCart] = useState([]);
+  const [toggleVisibility, setToggleVisibility] = useState(false)
+
+  const setVisibility = () => {
+    setToggleVisibility(prevState => !prevState)
+  }
 
   return (
     <CartContext.Provider value={{cart, setCart}}>
-      <Navbar />
+      <Navbar toggleCart={setVisibility} />
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/item/:id" element={<ProductDetail />} />
         </Routes>
-      <MyCart />
+        {toggleVisibility && <MyCart toggleCart={setVisibility} visibleCart={toggleVisibility} />}
       <Footer />
     </CartContext.Provider>
   );

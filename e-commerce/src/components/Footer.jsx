@@ -1,12 +1,15 @@
 import './Footer.css'
 export default function Footer() {
+    function alertMessage() {
+        alert("Thank You for Subscribing")
+    }
     return (
         <div className='flex flex-wrap justify-center border-t-gray-400 '>
             <div className="h-32 w-4/6 border flex justify-evenly items-center rounded-3xl bg-black p-3">
                 <h1 className='text-white integralBold text-3xl'>STAY UP TO DATE ABOUT <br />OUR LATEST OFFERS</h1>
                 <form className="flex flex-wrap h-full max-w-80 ">
                     <input className="border w-full text-center p-1 mb-1 rounded-full integralNormal" type="email" placeholder="Enter Your Email" />
-                    <button className="w-full border p-1 mt-1 rounded-full bg-white integralNormal">Subscribe to Newsletter</button>
+                    <button onClick={alertMessage} className="w-full border p-1 mt-1 rounded-full bg-white integralNormal">Subscribe to Newsletter</button>
                 </form>
             </div>
             <div className="flex flex-nowrap border-t border-black -mt-2 ">

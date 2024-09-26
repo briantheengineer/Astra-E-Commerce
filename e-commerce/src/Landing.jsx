@@ -1,9 +1,9 @@
-import Model from "../public/model-frontpage.jpg";
-import Gucci from "../public/Gucci-logo.png"
-import Calvin from "../public/Calvin-Klein-logo.png"
-import Prada from "../public/Prada-logo.png"
-import Versace from "../public/Versace-logo.png"
-import Zara from "../public/Zara-logo.png"
+import Model from "/model-frontpage.jpg";
+import Gucci from "/Gucci-logo.png"
+import Calvin from "/Calvin-Klein-logo.png"
+import Prada from "/Prada-logo.png"
+import Versace from "/Versace-logo.png"
+import Zara from "/Zara-logo.png"
 import Clothes from "../src/components/Clothes"
 import "./Landing.css";
 

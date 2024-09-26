@@ -25,23 +25,25 @@ export default function Clothes() {
   }, []);
 
   return (
-    <div className="text-center mt-5">
+    <div className="text-center my-5 border arrivalHeight">
       <h1 className="integralBold text-2xl">New Arrivals</h1>
       <div>
-        <ul className="flex flex-wrap content-center justify-center">
+        <ul className="flex flex-wrap content-center justify-center myCard">
           {data.map((item) => (
-            <div key={item.id} className="border p-5 m-2 card">
+            <div key={item.id} className="border p-5 m-2 card overflow-hidden rounded-lg">
               <Link to={`/item/${item.id}`}>
                 <li className="relative">
                   <img
-                    className="h-full w-full object-contain rounded-lg"
+                    className="h-full w-full object-cover rounded-lg"
                     src={item.img}
                     alt={item.name}
                   />
-                  <div className="flex justify-between integralNormal">
-                    <h1>{item.name}</h1>
-                    <h4>${item.price}</h4>
+                  <div className="flex flex-wrap justify-center">
+                    <h1 className="integralNormal text-sm w-full border">{item.name}</h1>
+                    <h4 className=" w-full font-bold ">${item.price}</h4>
+                    <p className="mt-2 font-medium underline viewProduct">View Product</p>
                   </div>
+                 
                 </li>
               </Link>
             </div>

@@ -1,13 +1,20 @@
 .card {
-    background-color: antiquewhite;
     height: 70vh;
     width: 45vh;
+    transition: transform 0.2s ease-in, background-color 0.3s ease-in  ;
 }
 
-.integralBold {
-    font-family: 'IntegralBold';
+.myCard  .card:hover {
+    min-height: fit-content;
+    overflow: visible;
+    transform:scale(1.03);
+    background-color: rgba(107, 114, 128, 0.2);
 }
 
-.integralNormal {
-    font-family: 'IntegralNormal', sans-serif;
+.arrivalHeight {
+    height: 85vh;
+}
+
+.viewProduct:hover {
+    color:grey;
 }

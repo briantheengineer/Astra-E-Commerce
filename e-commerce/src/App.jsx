@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer';
 import ProductDetail from './productDetail'
 import Landing from './Landing';
+import ClothingCategory from './ClothingCategory';
 import React, { createContext, useState }  from "react";
 import {
   BrowserRouter as Router,
@@ -27,6 +28,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/item/:id" element={<ProductDetail />} />
+          <Route path="/clothes/:category" element={ <ClothingCategory /> } />
         </Routes>
         {toggleVisibility && <MyCart toggleCart={setVisibility} visibleCart={toggleVisibility} />}
       <Footer />

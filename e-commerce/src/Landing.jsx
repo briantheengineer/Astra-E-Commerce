@@ -5,6 +5,7 @@ import Prada from "/Prada-logo.png"
 import Versace from "/Versace-logo.png"
 import Zara from "/Zara-logo.png"
 import Clothes from "../src/components/Clothes"
+import ClothingTypes from "./ClothingTypes";
 import "./Landing.css";
 
 export default function Landing() {
@@ -57,6 +58,7 @@ export default function Landing() {
         </div>
       </div>
       <Clothes />
+      <ClothingTypes />
     </>
   );
 }

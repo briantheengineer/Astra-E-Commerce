@@ -25,8 +25,8 @@ export default function Clothes() {
   }, []);
 
   return (
-    <div className="text-center my-5 border arrivalHeight">
-      <h1 className="integralBold text-2xl">New Arrivals</h1>
+    <div className="text-center my-5 border arrivalHeight overflow-hidden">
+      <h1 className="integralBold text-4xl">New Arrivals</h1>
       <div>
         <ul className="flex flex-wrap content-center justify-center myCard">
           {data.map((item) => (

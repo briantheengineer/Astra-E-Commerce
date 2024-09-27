@@ -28,7 +28,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/item/:id" element={<ProductDetail />} />
-          <Route path="/clothes/:category" element={ <ClothingCategory /> } />
+          <Route path="/clothing/:category" element={ <ClothingCategory /> } />
         </Routes>
         {toggleVisibility && <MyCart toggleCart={setVisibility} visibleCart={toggleVisibility} />}
       <Footer />

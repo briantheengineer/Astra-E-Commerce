@@ -1,0 +1,14 @@
+.myGrid div {
+    background-color: aquamarine;
+    font-family: "IntegralNormal";
+    border:1px solid black;
+    min-height: 32vh;
+    background-size: 100%;
+    @apply bg-center bg-cover text-6xl text-white rounded-md flex items-center justify-center tracking-wider;
+    transition: opacity 0.5s ease-in ;
+}
+
+.myGrid div:hover {
+    background-size: 110%;
+    opacity: 0.85;
+} 

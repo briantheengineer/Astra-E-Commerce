@@ -9,11 +9,12 @@ function ClothingCategory() {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const dbRef = ref(database, 'products');
+      const dbRef = ref(database, 'Clothes');
       const productQuery = query(dbRef, orderByChild('category'), equalTo(category));
 
       try {
         const snapshot = await get(productQuery);
+        console.log(snapshot.val());
         if (snapshot.exists()) {
           const data = snapshot.val();
           setProducts(Object.values(data)); 
@@ -29,7 +30,7 @@ function ClothingCategory() {
   }, [category]); 
 
   return (
-    <div>
+    <div className='h-screen'>
       <h1>Category: {category}</h1>
       <div>
         {products.length > 0 ? (

@@ -40,7 +40,7 @@ export default function Clothes() {
                   />
                   <div className="flex flex-wrap justify-center">
                     <h1 className="integralNormal text-sm w-full border">{item.name}</h1>
-                    <h4 className=" w-full font-bold ">${item.price}</h4>
+                    <h4 className=" w-full font-sans font-bold ">${item.price}</h4>
                     <p className="mt-2 font-medium underline viewProduct">View Product</p>
                   </div>
                  

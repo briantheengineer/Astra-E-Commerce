@@ -25,7 +25,7 @@ export default function Navbar( {toggleCart} ) {
                     <div className="relative">
                         <button onClick={toggleDropdown} className="px-4 link IntegralRegular min-w-24">Shop</button>
                         <div className={`dropdown-menu ${isDropped ? '' : 'hidden'} border p-2 space-y-2 IntegralRegular z-50 absolute min-w-24 text-center `}>
-                            <p><Link to="/clothing/dress">Thing 1</Link></p>
+                            <p><Link to="/clothing/dress">Dress</Link></p>
                             <p>Thing 2</p>
                         </div>
                     </div>

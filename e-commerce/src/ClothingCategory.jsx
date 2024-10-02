@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { ref, query, orderByChild, equalTo, get } from 'firebase/database';
-import { database } from './firebaseConfig'; 
+import { firestore } from './firebaseConfig';
+import { collection, query, where, getDocs } from "firebase/firestore"; 
 
 function ClothingCategory() {
   const { category } = useParams(); 
@@ -9,41 +9,42 @@ function ClothingCategory() {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const dbRef = ref(database, 'Clothes');
-      const productQuery = query(dbRef, orderByChild('category'), equalTo(category));
-
+      const q = query(
+        collection(firestore, 'Clothes'), 
+        where('category', '==', category) 
+      );
+  
       try {
-        const snapshot = await get(productQuery);
-        console.log(snapshot.val());
-        if (snapshot.exists()) {
-          const data = snapshot.val();
-          setProducts(Object.values(data)); 
-        } else {
-          setProducts([]); 
-        }
+        const querySnapshot = await getDocs(q); 
+        const productsArray = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })); 
+        setProducts(productsArray); 
       } catch (error) {
         console.error('Error fetching products:', error);
       }
     };
-
+  
     fetchProducts();
   }, [category]); 
+  
 
   return (
-    <div className='h-screen'>
-      <h1>Category: {category}</h1>
-      <div>
+    <div  className='h-screen text-center p-3'>
+    <div>
+      <h1 className='integralBold text-2xl'>{category}</h1>
+      <div className='flex justify-center'>
         {products.length > 0 ? (
           products.map(product => (
-            <div key={product.id}>
-              <h2>{product.name}</h2>
-              <p>Price: ${product.price}</p>
+            <div key={product.id} className="border p-5 m-2 card overflow-hidden rounded-lg">
+              <h2 className="integralNormal text-sm w-full border">{product.name}</h2>
+              <p className='font-bold'>Price: ${product.price}</p>
+              <img src={product.img} />
             </div>
           ))
         ) : (
           <p>No products found for this category.</p>
         )}
       </div>
+    </div>
     </div>
   );
 }

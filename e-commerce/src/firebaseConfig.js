@@ -3,6 +3,7 @@ import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore"; 
 import { getStorage } from "firebase/storage";
 
+
 const firebaseConfig = {
   apiKey: "AIzaSyCwXf-N8RI5FmEjDTiTLfpiVf62zH96zw8",
   authDomain: "astra-e-commerce.firebaseapp.com",
@@ -21,4 +22,4 @@ const firestore = getFirestore(app)
 
 
 export const db = getFirestore(app); 
-export { storage, firestore }
+export { storage, firestore}

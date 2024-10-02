@@ -20,7 +20,7 @@ export default function myCart({toggleCart, visibleCart}) {
     const decreaseItem = (i) => {
         setCart(prevCart => {
             return prevCart.map(cartItem =>
-                cartItem.id === i.id ? {...cartItem, quantity: cartItem.quantity - 1} : cartItem
+                cartItem.id === i.id && cartItem.size === i.size ? {...cartItem, quantity: cartItem.quantity - 1} : cartItem
             )
             .filter(cartItem => cartItem.quantity > 0)
         })
@@ -33,7 +33,7 @@ export default function myCart({toggleCart, visibleCart}) {
                 <ul className="my-10">
                     {cart.length > 0 ? (
                         cart.map((i, index) =>
-                        <li key={index} className="border"> {index + 1}. {i.name} <br></br> ${i.price}  {i.quantity} item <button onClick={() => decreaseItem(i)}>-</button></li>)
+                        <li key={index} className="border"> {index + 1}. {i.name} <br></br> ${i.price} {i.size} {i.quantity} item <button onClick={() => decreaseItem(i)}>-</button></li>)
                     ): <li>No Items Added Yet</li>
                     }
                     

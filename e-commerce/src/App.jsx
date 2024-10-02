@@ -22,12 +22,16 @@ function App() {
     setToggleVisibility(prevState => !prevState)
   }
 
+  const makeVisible = () => {
+    setToggleVisibility(true)
+  }
+
   return (
     <CartContext.Provider value={{cart, setCart}}>
       <Navbar toggleCart={setVisibility} />
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="/item/:id" element={<ProductDetail />} />
+          <Route path="/item/:id" element={<ProductDetail toggleCart={makeVisible} visibleCart={toggleVisibility} />} />
           <Route path="/clothing/:category" element={ <ClothingCategory /> } />
         </Routes>
         {toggleVisibility && <MyCart toggleCart={setVisibility} visibleCart={toggleVisibility} />}

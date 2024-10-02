@@ -5,11 +5,12 @@ import { db } from './firebaseConfig';
 import { CartContext } from './App';
 import './productDetail.css'
 
-const ProductDetail = () => {
+const ProductDetail = ({toggleCart}) => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [count, setCount] = useState(1);
-  const { cart, setCart } = useContext(CartContext)
+  const [selectedSize, setSelectedSize] = useState('Medium');
+  const { cart, setCart } = useContext(CartContext);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -38,16 +39,16 @@ const ProductDetail = () => {
   const addToCart= () => {
     setCart( 
       prevCart => {
-        const itemExists = prevCart.find(cartItem => cartItem.id === product.id);
+        const itemExists = prevCart.find(cartItem => cartItem.id === product.id && cartItem.size === selectedSize);
 
         if (itemExists) {
           return prevCart.map(cartItem => 
-            cartItem.id === product.id ? {...cartItem, quantity: cartItem.quantity + 1}
+            cartItem.id === product.id && cartItem.size === selectedSize ? {...cartItem, quantity: cartItem.quantity + count}
             : cartItem
           );
         }
         else {
-          return [...prevCart, {...product, quantity: 1}]
+          return [...prevCart, {...product, quantity: count, size: selectedSize}]
         }
       }
     )
@@ -64,6 +65,15 @@ const ProductDetail = () => {
     
   }
 
+  const handleSizeChange = (e) => {
+    setSelectedSize(e.target.value);
+  };
+
+  function btnFunctions() {
+    toggleCart();
+    addToCart();
+  }
+
   return (
     <div className='h-100 h-full flex flex-nowrap justify-center m-8 border p-5'>
         
@@ -76,21 +86,12 @@ const ProductDetail = () => {
         <div>
           <p className='integralNormal text-gray-500 text-xs mb-3'>Choose Size</p>
           <div className='flex flex-nowrap itemSize'>
-              <form>
-                <label>
-                  <input type="radio" name="size" id="small"/> Small
-                </label>
-                <label>
-                  <input type="radio" name="size" id="medium"/> Medium
-                </label>
-                <label>
-                  <input type="radio" name="size" id="large"/> Large
-                </label>
-                <label>
-                  <input type="radio" name="size" id="xlarge"/> X Large
-                </label>
-              </form>
-
+          <select value={selectedSize} onChange={handleSizeChange} className='border p-2'>
+              <option value='Small'>Small</option>
+              <option value='Medium'>Medium</option>
+              <option value='Large'>Large</option>
+              <option value='X Large'>X Large</option>
+            </select>
           </div>
         </div>
             <div className='flex flex-nowrap'>
@@ -99,7 +100,7 @@ const ProductDetail = () => {
                     <p className='text-2xl'>{count}</p>
                     <button className='text-2xl border' onClick={addNumber}>+</button>
                 </div>
-                <button onClick={addToCart} className='text-center border px-10 integralBold cartBtn '>Add to Cart</button>
+                <button onClick={btnFunctions} className='text-center border px-10 integralBold cartBtn '>Add to Cart</button>
             </div>
       </div>
       

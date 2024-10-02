@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Model from "/model-frontpage.jpg";
 import Gucci from "/Gucci-logo.png"
 import Calvin from "/Calvin-Klein-logo.png"
@@ -22,9 +23,9 @@ export default function Landing() {
               designed to bring out your individuality and cater to your sense
               of style
             </h4>
-            <button className="myBtn IntegralRegular text-white text-lg bg-black px-16 py-2 rounded-full mb-10 mx-10 tracking-widest">
+            <Link to='/clothing'><button className="myBtn IntegralRegular text-white text-lg bg-black px-16 py-2 rounded-full mb-10 mx-10 tracking-widest">
               Shop Now
-            </button>
+            </button></Link>
             <div className="flex flex-nowrap justify-around boxes">
               <div>
                 <h1>200</h1>

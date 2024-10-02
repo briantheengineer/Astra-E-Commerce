@@ -10,3 +10,8 @@
 .IntegralRegular {
     font-family: IntegralRegular;
 }
+
+.myCategories {
+    background-color: rgba(999,999,999,0.6);
+    backdrop-filter: blur(5px);
+}

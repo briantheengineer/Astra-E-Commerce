@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { firestore } from './firebaseConfig';
 import { collection, query, where, getDocs } from "firebase/firestore"; 
+import { Link } from 'react-router-dom';
 
 function ClothingCategory() {
   const { category } = useParams(); 
@@ -34,11 +35,12 @@ function ClothingCategory() {
       <div className='flex justify-center'>
         {products.length > 0 ? (
           products.map(product => (
+            <Link to={`/item/${product.id}`}>
             <div key={product.id} className="border p-5 m-2 card overflow-hidden rounded-lg">
               <h2 className="integralNormal text-sm w-full border">{product.name}</h2>
               <p className='font-bold'>Price: ${product.price}</p>
               <img src={product.img} />
-            </div>
+            </div></Link>
           ))
         ) : (
           <p>No products found for this category.</p>

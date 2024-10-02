@@ -11,6 +11,7 @@ import {
   Route,
   Routes
 } from "react-router-dom";
+import BuyCart from './BuyCart';
 
 export const CartContext = createContext([])
 
@@ -32,7 +33,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/item/:id" element={<ProductDetail toggleCart={makeVisible} visibleCart={toggleVisibility} />} />
-          <Route path="/clothing/:category" element={ <ClothingCategory /> } />
+          <Route path="/clothing/:category?" element={ <ClothingCategory /> } />
+          <Route path="/buycart" element={ <BuyCart />} />
         </Routes>
         {toggleVisibility && <MyCart toggleCart={setVisibility} visibleCart={toggleVisibility} />}
       <Footer />

@@ -26,9 +26,9 @@ export default function Navbar( {toggleCart} ) {
                         <button onClick={toggleDropdown} className="px-4 link IntegralRegular min-w-24">Shop</button>
                         <div className={`dropdown-menu ${isDropped ? '' : 'hidden'} border p-2 space-y-2 IntegralRegular z-50 absolute min-w-24 text-center myCategories`}>
                             <p><Link to="/clothing/dress">Dress</Link></p><hr className="h-0" />
-                            <p><Link to="/clothing/dress">Tops</Link></p><hr className="h-0" />
-                            <p><Link to="/clothing/dress">Bikinis</Link></p><hr className="h-0" />
-                            <p><Link to="/clothing/dress">Pants</Link></p>
+                            <p><Link to="/clothing/tops">Tops</Link></p><hr className="h-0" />
+                            <p><Link to="/clothing/bikinis">Bikinis</Link></p><hr className="h-0" />
+                            <p><Link to="/clothing/pants">Pants</Link></p>
                         </div>
                     </div>
                     <h2 className="whitespace-nowrap px-4 link IntegralRegular">On Sale</h2>

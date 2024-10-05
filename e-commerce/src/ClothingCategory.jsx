@@ -10,22 +10,27 @@ function ClothingCategory() {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const q = query(
-        collection(firestore, 'Clothes'), 
-        where('category', '==', category) 
-      );
-  
       try {
+        let q;
+        if (category) {
+          q = query(
+            collection(firestore, 'Clothes'), 
+            where('category', '==', category)
+          );
+        } else {
+          q = query(collection(firestore, 'Clothes'));
+        }
+
         const querySnapshot = await getDocs(q); 
         const productsArray = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })); 
-        setProducts(productsArray); 
+        setProducts(productsArray);
       } catch (error) {
         console.error('Error fetching products:', error);
       }
     };
-  
+
     fetchProducts();
-  }, [category]); 
+  }, [category]);
   
 
   return (

@@ -36,23 +36,24 @@ const ProductDetail = ({toggleCart}) => {
     return <p>Loading...</p>;
   }
 
-  const addToCart= () => {
-    setCart( 
-      prevCart => {
-        const itemExists = prevCart.find(cartItem => cartItem.id === product.id && cartItem.size === selectedSize);
-
-        if (itemExists) {
-          return prevCart.map(cartItem => 
-            cartItem.id === product.id && cartItem.size === selectedSize ? {...cartItem, quantity: cartItem.quantity + count}
+  const addToCart = () => {
+    setCart(prevCart => {
+      const itemExists = prevCart.find(cartItem => 
+        cartItem.name === product.name && cartItem.size === selectedSize
+      );
+  
+      if (itemExists) {
+        return prevCart.map(cartItem => 
+          cartItem.name === product.name && cartItem.size === selectedSize
+            ? { ...cartItem, quantity: cartItem.quantity + count }
             : cartItem
-          );
-        }
-        else {
-          return [...prevCart, {...product, quantity: count, size: selectedSize}]
-        }
+        );
+      } else {
+        return [...prevCart, { ...product, quantity: count, size: selectedSize }];
       }
-    )
-  }
+    });
+  };
+  
 
   function addNumber() {
     setCount(count + 1 )
@@ -70,8 +71,8 @@ const ProductDetail = ({toggleCart}) => {
   };
 
   function btnFunctions() {
-    toggleCart();
     addToCart();
+    toggleCart();
   }
 
   return (

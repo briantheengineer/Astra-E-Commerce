@@ -3,8 +3,7 @@ import { CartContext } from "./App"
 import { Link } from "react-router-dom";
 
 export default function BuyCart() {
-    const {cart, setCart} = useContext(CartContext)
-    const myCart = cart.map( item => <li>{item}</li>);
+    const {cart, setCart} = useContext(CartContext);
     return (
         <div className="h-full min-h-72">
             <div className="p-5 text-center">
